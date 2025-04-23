@@ -93,6 +93,108 @@
         box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
         text-decoration: none;
       }
+      
+      /* ======= SLIDESHOW STYLES ======= */
+      /* Main container for the slideshow - sets width, positioning and shadow effects */
+      .slideshow-container {
+        max-width: 700px;          /* Limits the maximum width of the slideshow */
+        position: relative;         /* Enables absolute positioning of elements inside */
+        margin: 30px auto;          /* Centers the slideshow with spacing above/below */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Adds subtle shadow for depth */
+        border-radius: 8px;         /* Rounds the corners of the slideshow container */
+        overflow: hidden;           /* Ensures images don't spill outside rounded corners */
+      }
+      
+      /* Style for each slide - initially hidden with display:none */
+      .mySlides {
+        display: none;              /* Hides all slides by default */
+        width: 100%;                /* Makes each slide take full width of container */
+      }
+      
+      /* Style for images inside the slides */
+      .mySlides img {
+        width: 100%;                /* Makes images responsive */
+        height: 400px;              /* Fixed height for all images */
+        object-fit: cover;          /* Ensures images cover area without distortion */
+        margin: 0;                  /* Removes default margin */
+        border-radius: 0;           /* Removes border radius from images */
+      }
+      
+      /* Style for the caption text that appears over images */
+      .slide-caption {
+        color: white;               /* White text for readability */
+        background-color: rgba(0, 0, 0, 0.7);  /* Semi-transparent black background */
+        font-size: 15px;            /* Text size for captions */
+        padding: 12px;              /* Spacing inside caption box */
+        position: absolute;         /* Positions caption absolutely within slide */
+        bottom: 0;                  /* Places caption at bottom of slide */
+        width: 100%;                /* Makes caption full width */
+        text-align: center;         /* Centers caption text */
+      }
+      
+      /* Styles for previous and next navigation buttons */
+      .prev, .next {
+        cursor: pointer;            /* Changes cursor to pointer on hover */
+        position: absolute;         /* Positions buttons absolutely */
+        top: 50%;                   /* Centers buttons vertically */
+        width: auto;                /* Allows buttons to size to content */
+        margin-top: -22px;          /* Adjusts vertical position */
+        padding: 16px;              /* Spacing inside buttons */
+        color: white;               /* White arrow color */
+        font-weight: bold;          /* Makes arrows bold */
+        font-size: 20px;            /* Sets arrow size */
+        transition: 0.6s ease;      /* Smooth transition for hover effect */
+        border-radius: 0 3px 3px 0; /* Rounds corners on one side */
+        user-select: none;          /* Prevents text selection */
+        background-color: rgba(0, 0, 0, 0.3);  /* Semi-transparent black background */
+      }
+      
+      /* Positions the next button on the right side */
+      .next {
+        right: 0;                   /* Aligns to right edge */
+        border-radius: 3px 0 0 3px; /* Rounds corners on opposite side */
+      }
+      
+      /* Hover effect for navigation buttons */
+      .prev:hover, .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);  /* Darker background on hover */
+      }
+      
+      /* Container for the navigation dots */
+      .dot-container {
+        text-align: center;         /* Centers the navigation dots */
+        margin-top: -20px;          /* Negative margin pulls dots up */
+        margin-bottom: 20px;        /* Space below dots */
+      }
+      
+      /* Style for individual navigation dots */
+      .dot {
+        cursor: pointer;            /* Changes cursor to pointer on hover */
+        height: 12px;               /* Height of dots */
+        width: 12px;                /* Width of dots */
+        margin: 0 5px;              /* Spacing between dots */
+        background-color: #bbb;     /* Light gray color for inactive dots */
+        border-radius: 50%;         /* Makes dots circular */
+        display: inline-block;      /* Displays dots in a row */
+        transition: background-color 0.6s ease;  /* Smooth color transition */
+      }
+      
+      /* Style for active dot and hover state */
+      .active, .dot:hover {
+        background-color: #1e88e5;  /* Blue color for active/hovered dot */
+      }
+      
+      /* Animation for slide transitions */
+      .fade {
+        animation-name: fade;       /* References the @keyframes rule below */
+        animation-duration: 1.5s;   /* Duration of fade animation */
+      }
+      
+      /* Keyframes define the animation from start to finish */
+      @keyframes fade {
+        from {opacity: .4}          /* Starts at 40% opacity */
+        to {opacity: 1}             /* Ends at 100% opacity */
+      }
     </style>
   </head>
   <body>
@@ -107,7 +209,50 @@
       </div>
       
       <a href="https://www.w3schools.com/html/default.asp">Learn HTML</a><br>
-      <img src="https://hitokageproduction.com/img/articles/htmlCode.webp" alt="Computer Code" style="width:500px;height:300px;">
+      
+      <!-- Slideshow component starts here -->
+      <!-- Main container that holds all slideshow elements -->
+      <div class="slideshow-container">
+        <!-- Each slide is contained in a div with class "mySlides" -->
+        <!-- First slide - using your original image -->
+        <div class="mySlides fade">
+          <img src="https://hitokageproduction.com/img/articles/htmlCode.webp" alt="HTML Code">
+          <div class="slide-caption">HTML Programming</div>
+        </div>
+        
+        <!-- Second slide - showing software development environment -->
+        <div class="mySlides fade">
+          <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Code on Computer Screen">
+          <div class="slide-caption">Software Development</div>
+        </div>
+        
+        <!-- Third slide - showing programming code -->
+        <div class="mySlides fade">
+          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Programming Code">
+          <div class="slide-caption">Algorithm Development</div>
+        </div>
+        
+        <!-- Fourth slide - showing data visualization -->
+        <div class="mySlides fade">
+          <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Data Visualization">
+          <div class="slide-caption">Data Structures Visualization</div>
+        </div>
+        
+        <!-- Navigation arrows -->
+        <!-- Previous button - calls plusSlides() with -1 to go back one slide -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <!-- Next button - calls plusSlides() with 1 to advance one slide -->
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+      
+      <!-- Navigation dots -->
+      <!-- Each dot corresponds to a slide and calls currentSlide() with the slide number -->
+      <div class="dot-container">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+      </div>
       
       <div style="text-align: center; margin: 30px 0;">
         <a href="https://www.moundsparkacademy.org/" target="_blank" class="button">
@@ -124,5 +269,56 @@
         <li><a href="https://www.youtube.com/user/thenewboston" target="_blank">YouTube: thenewboston (Programming Tutorials)</a></li>
       </ul>
     </div>
+    
+    <!-- JavaScript for Slideshow Functionality -->
+    <script>
+      // Initialize the slideshow with the first slide (index = 1)
+      let slideIndex = 1;
+      showSlides(slideIndex);
+      
+      // Function to advance slides forward or backward
+      // n is the number of slides to move: positive = forward, negative = backward
+      function plusSlides(n) {
+        showSlides(slideIndex += n); // Add n to slideIndex and show that slide
+      }
+      
+      // Function to show a specific slide
+      // n is the slide number to display
+      function currentSlide(n) {
+        showSlides(slideIndex = n); // Set slideIndex to n and show that slide
+      }
+      
+      // Main function to display slides and update navigation
+      function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides"); // Get all slides
+        let dots = document.getElementsByClassName("dot");        // Get all navigation dots
+        
+        // Handle edge cases: if beyond last slide, loop to first slide
+        if (n > slides.length) {slideIndex = 1}
+        // If before first slide, loop to last slide
+        if (n < 1) {slideIndex = slides.length}
+        
+        // Hide all slides by setting display to "none"
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        
+        // Remove "active" class from all dots
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        
+        // Display the current slide and highlight its dot
+        slides[slideIndex-1].style.display = "block"; // Show current slide
+        dots[slideIndex-1].className += " active";    // Add active class to current dot
+      }
+      
+      // Set up automatic slideshow
+      // This creates a timer that advances the slide every 5 seconds
+      let autoSlide = setInterval(function() {
+        plusSlides(1); // Call plusSlides to advance by 1
+      }, 5000);        // Time in milliseconds between slides (5000ms = 5 seconds)
+    </script>
   </body>
 </html>
