@@ -11,7 +11,55 @@
         color: #333;
         line-height: 1.6;
         margin: 0;
-        padding: 0 20px;
+        padding: 0;
+      }
+      
+      /* Navigation styles */
+      .navbar {
+        background-color: #2c3e50;
+        overflow: hidden;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .navbar ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+      }
+
+      .navbar li {
+        margin: 0;
+      }
+
+      .navbar a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 16px 20px;
+        text-decoration: none;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        transition: background-color 0.3s;
+      }
+
+      .navbar a:hover {
+        background-color: #3498db;
+        text-decoration: none;
+      }
+
+      .navbar a.active {
+        background-color: #3498db;
+      }
+
+      .navbar-brand {
+        font-weight: 700;
+        font-size: 18px;
+        padding-right: 40px !important;
       }
       
       .container {
@@ -195,9 +243,30 @@
         from {opacity: .4}          /* Starts at 40% opacity */
         to {opacity: 1}             /* Ends at 100% opacity */
       }
+
+      /* Responsive adjustments */
+      @media screen and (max-width: 768px) {
+        .navbar ul {
+          flex-direction: column;
+        }
+        
+        .navbar a {
+          padding: 10px;
+        }
+      }
     </style>
   </head>
   <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <ul>
+        <li><a href="index1.html" class="navbar-brand active">CS2</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
     <div class="container">
       <h1><b>Welcome to Computer Science 2</b></h1>
       

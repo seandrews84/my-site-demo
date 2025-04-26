@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Resources | Computer Science 2</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+      body { 
+        background-color: #f8f9fa;
+        font-family: 'Roboto', sans-serif;
+        color: #333;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+      }
+      
+      /* Navigation styles */
+      .navbar {
+        background-color: #2c3e50;
+        overflow: hidden;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .navbar ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+      }
+
+      .navbar li {
+        margin: 0;
+      }
+
+      .navbar a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 16px 20px;
+        text-decoration: none;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        transition: background-color 0.3s;
+      }
+
+      .navbar a:hover {
+        background-color: #3498db;
+        text-decoration: none;
+      }
+
+      .navbar a.active {
+        background-color: #3498db;
+      }
+
+      .navbar-brand {
+        font-weight: 700;
+        font-size: 18px;
+        padding-right: 40px !important;
+      }
+      
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      
+      h1, h2, h3 {
+        color: #2c3e50;
+      }
+      
+      h1 {
+        text-align: center;
+        margin-top: 30px;
+      }
+      
+      p { 
+        font-size: 18px;
+      }
+      
+      a {
+        color: #3498db;
+        text-decoration: none;
+      }
+      
+      a:hover {
+        text-decoration: underline;
+      }
+      
+      .highlight-box {
+        background-color: #e9f7fe;
+        padding: 20px;
+        border: 1px solid #c9e6f7;
+        border-radius: 5px;
+        margin: 20px 0;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      }
+
+      .resource-card {
+        background-color: white;
+        border-radius: 8px;
+        overflow: hidden;
+        margin: 20px 0;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .resource-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+      }
+
+      .resource-card-header {
+        padding: 15px 20px;
+        background-color: #2c3e50;
+        color: white;
+      }
+
+      .resource-card-body {
+        padding: 20px;
+      }
+
+      .resource-card-footer {
+        padding: 15px 20px;
+        background-color: #f1f1f1;
+        text-align: right;
+      }
+
+      .tag {
+        display: inline-block;
+        background-color: #e1f5fe;
+        color: #0288d1;
+        padding: 5px 10px;
+        border-radius: 30px;
+        font-size: 14px;
+        margin-right: 8px;
+        margin-bottom: 8px;
+      }
+
+      .button {
+        display: inline-block;
+        background-color: #1e88e5;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 4px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border: none;
+        text-decoration: none;
+        font-size: 14px;
+      }
+      
+      .button:hover {
+        background-color: #1565c0;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+        text-decoration: none;
+      }
+
+      .resource-tabs {
+        display: flex;
+        border-bottom: 1px solid #ddd;
+        margin-bottom: 30px;
+      }
+
+      .resource-tab {
+        padding: 12px 24px;
+        cursor: pointer;
+        margin-right: 5px;
+        font-weight: 500;
+        border-bottom: 3px solid transparent;
+        transition: all 0.3s ease;
+      }
+
+      .resource-tab.active {
+        border-bottom-color: #3498db;
+        color: #3498db;
+      }
+
+      .resource-tab:hover {
+        background-color: #f1f9ff;
+      }
+
+      .resource-section {
+        margin-bottom: 40px;
+      }
+
+      /* Responsive adjustments */
+      @media screen and (max-width: 768px) {
+        .navbar ul {
+          flex-direction: column;
+        }
+        
+        .navbar a {
+          padding: 10px;
+        }
+
+        .resource-tabs {
+          flex-wrap: wrap;
+        }
+
+        .resource-tab {
+          flex-grow: 1;
+          text-align: center;
+          padding: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <ul>
+        <li><a href="index1.html" class="navbar-brand">CS2</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="resources.html" class="active">Resources</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <h1><b>Learning Resources</b></h1>
+      
+      <p>We've compiled a comprehensive collection of resources to support your learning journey in Computer Science 2. These materials range from textbooks to online tutorials, practice exercises, and tools that will help you master course concepts.</p>
+      
+      <div class="resource-tabs">
+        <div class="resource-tab active">Data Structures</div>
+        <div class="resource-tab">Algorithms</div>
+        <div class="resource-tab">OOP Concepts</div>
+        <div class="resource-tab">Tools & Software</div>
+        <div class="resource-tab">Practice Problems</div>
+      </div>
+      
+      <div class="resource-section">
+        <h2>Featured Resources</h2>
+        
+        <div class="resource-card">
+          <div class="resource-card-header">
+            <h3>Data Structures & Algorithms in Python</h3>
+          </div>
+          <div class="resource-card-body">
+            <p>This comprehensive guide covers all the essential data structures and algorithms with Python implementations. It includes detailed explanations, visual representations, and practice problems for each topic.</p>
+            <div>
+              <span class="tag">Python</span>
+              <span class="tag">Data Structures</span>
+              <span class="tag">Algorithms</span>
+              <span class="tag">Recommended</span>
+            </div>
+          </div>
+          <div class="resource-card-footer">
+            <a href="https://www.geeksforgeeks.org/data-structures/" target="_blank" class="button">View Resource</a>
+          </div>
+        </div>
+        
+        <div class="resource-card">
+          <div class="resource-card-header">
+            <h3>MIT OpenCourseWare: Introduction to Algorithms</h3>
+          </div>
+          <div class="resource-card-body">
+            <p>MIT's world-renowned algorithms course offers lecture videos, course notes, and problem sets that explore algorithm design, analysis, and implementation. This resource is particularly valuable for understanding time complexity and optimization.</p>
+            <div>
+              <span class="tag">Video Lectures</span>
+              <span class="tag">Advanced</span>
+              <span class="tag">Algorithm Analysis</span>
+            </div>
+          </div>
+          <div class="resource-card-footer">
+            <a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/" target="_blank" class="button">View Resource</a>
+          </div>
+        </div>
+        
+        <div class="resource-card">
+          <div class="resource-card-header">
+            <h3>Visualgo: Algorithm Visualization</h3>
+          </div>
+          <div class="resource-card-body">
+            <p>This interactive tool allows you to visualize data structures and algorithms in action. It's an excellent resource for understanding how different algorithms work step-by-step, making complex concepts easier to grasp.</p>
+            <div>
+              <span class="tag">Interactive</span>
+              <span class="tag">Visualization</span>
+              <span class="tag">Beginner-Friendly</span>
+            </div>
+          </div>
+          <div class="resource-card-footer">
+            <a href="https://visualgo.net/en" target="_blank" class="button">View Resource</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="resource-section">
+        <h2>Recommended Reading</h2>
+        
+        <div class="highlight-box">
+          <h3>Textbooks</h3>
+          <ul>
+            <li><strong>Introduction to Algorithms</strong> by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein</li>
+            <li><strong>Data Structures and Algorithms in Python</strong> by Michael T. Goodrich, Roberto Tamassia, and Michael H. Goldwasser</li>
+            <li><strong>Clean Code: A Handbook of Agile Software Craftsmanship</strong> by Robert C. Martin</li>
+            <li><strong>Head First Design Patterns</strong> by Eric Freeman, Elisabeth Robson, Bert Bates, and Kathy Sierra</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="resource-section">
+        <h2>Online Learning Platforms</h2>
+        <div class="resource-card">
+          <div class="resource-card-header">
+            <h3>Coursera: Algorithms Specialization</h3>
+          </div>
+          <div class="resource-card-body">
+            <p>A series of courses that covers algorithmic techniques for solving problems, developed by Stanford University. The specialization includes topics like graph algorithms, greedy algorithms, dynamic programming, and NP-completeness.</p>
+          </div>
+          <div class="resource-card-footer">
+            <a href="https://www.coursera.org/specializations/algorithms" target="_blank" class="button">View Course</a>
+          </div>
+        </div>
+        
+        <div class="resource-card">
+          <div class="resource-card-header">
+            <h3>edX: Object-Oriented Programming</h3>
+          </div>
+          <div class="resource-card-body">
+            <p>This course dives deep into OOP principles, providing practical examples and exercises to reinforce your understanding of inheritance, polymorphism, and encapsulation.</p>
+          </div>
+          <div class="resource-card-footer">
+            <a href="https://www.edx.org/learn/object-oriented-programming" target="_blank" class="button">View Course</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="resource-section">
+        <h2>Practice Problems</h2>
+        <p>Regular practice is essential for mastering programming concepts. Here are some platforms where you can find challenging problems:</p>
+        <ul>
+          <li><a href="https://leetcode.com/" target="_blank">LeetCode</a> - Offers a collection of coding challenges focused on algorithms and data structures</li>
+          <li><a href="https://www.hackerrank.com/" target="_blank">HackerRank</a> - Provides programming challenges across various domains</li>
+          <li><a href="https://projecteuler.net/" target="_blank">Project Euler</a> - Offers mathematical problems that require computational solutions</li>
+          <li><a href="https://exercism.org/" target="_blank">Exercism</a> - Provides coding exercises with mentorship</li>
+        </ul>
+      </div>
+    </div>
+    
+    <script>
+      // This would be expanded with JavaScript to make the tabs functional
+      // For now, it's just a visual representation
+      const tabs = document.querySelectorAll('.resource-tab');
+      
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          // Remove active class from all tabs
+          tabs.forEach(t => t.classList.remove('active'));
+          // Add active class to clicked tab
+          tab.classList.add('active');
+          
+          // In a full implementation, this would show/hide content sections
+        });
+      });
+    </script>
+  </body>
+</html> 

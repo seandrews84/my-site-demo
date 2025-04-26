@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Contact | Computer Science 2</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+      body { 
+        background-color: #f8f9fa;
+        font-family: 'Roboto', sans-serif;
+        color: #333;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+      }
+      
+      /* Navigation styles */
+      .navbar {
+        background-color: #2c3e50;
+        overflow: hidden;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .navbar ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+      }
+
+      .navbar li {
+        margin: 0;
+      }
+
+      .navbar a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 16px 20px;
+        text-decoration: none;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        transition: background-color 0.3s;
+      }
+
+      .navbar a:hover {
+        background-color: #3498db;
+        text-decoration: none;
+      }
+
+      .navbar a.active {
+        background-color: #3498db;
+      }
+
+      .navbar-brand {
+        font-weight: 700;
+        font-size: 18px;
+        padding-right: 40px !important;
+      }
+      
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      
+      h1, h2, h3 {
+        color: #2c3e50;
+      }
+      
+      h1 {
+        text-align: center;
+        margin-top: 30px;
+      }
+      
+      p { 
+        font-size: 18px;
+      }
+      
+      a {
+        color: #3498db;
+        text-decoration: none;
+      }
+      
+      a:hover {
+        text-decoration: underline;
+      }
+      
+      .highlight-box {
+        background-color: #e9f7fe;
+        padding: 20px;
+        border: 1px solid #c9e6f7;
+        border-radius: 5px;
+        margin: 20px 0;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      }
+
+      .two-column {
+        display: flex;
+        gap: 40px;
+        margin: 30px 0;
+      }
+
+      .column {
+        flex: 1;
+      }
+
+      /* Contact form styles */
+      .contact-form {
+        background-color: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+        color: #2c3e50;
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+        transition: border-color 0.3s, box-shadow 0.3s;
+      }
+
+      .form-control:focus {
+        border-color: #3498db;
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+      }
+
+      textarea.form-control {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      .button {
+        display: inline-block;
+        background-color: #1e88e5;
+        color: white;
+        padding: 12px 24px;
+        border-radius: 4px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border: none;
+        text-decoration: none;
+        cursor: pointer;
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+      }
+      
+      .button:hover {
+        background-color: #1565c0;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Contact info styles */
+      .contact-info {
+        background-color: #2c3e50;
+        color: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      }
+
+      .contact-info h2 {
+        color: white;
+        margin-top: 0;
+      }
+
+      .contact-method {
+        margin-bottom: 25px;
+      }
+
+      .contact-label {
+        font-weight: 700;
+        display: block;
+        margin-bottom: 5px;
+        color: #3498db;
+      }
+
+      .contact-value {
+        font-size: 16px;
+      }
+
+      .social-links {
+        margin-top: 30px;
+      }
+
+      .social-links a {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: white;
+        text-align: center;
+        line-height: 40px;
+        border-radius: 50%;
+        margin-right: 10px;
+        transition: background-color 0.3s;
+      }
+
+      .social-links a:hover {
+        background-color: #3498db;
+        text-decoration: none;
+      }
+
+      .office-hours {
+        margin-top: 30px;
+      }
+
+      .office-day {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      /* FAQ section */
+      .faq-section {
+        margin-top: 50px;
+      }
+
+      .faq-item {
+        margin-bottom: 20px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 20px;
+      }
+
+      .faq-question {
+        font-weight: 500;
+        color: #2c3e50;
+        margin-bottom: 10px;
+        font-size: 18px;
+      }
+
+      /* Responsive adjustments */
+      @media screen and (max-width: 768px) {
+        .navbar ul {
+          flex-direction: column;
+        }
+        
+        .navbar a {
+          padding: 10px;
+        }
+
+        .two-column {
+          flex-direction: column;
+        }
+
+        .contact-info {
+          margin-top: 30px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <ul>
+        <li><a href="index1.html" class="navbar-brand">CS2</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <h1><b>Contact Us</b></h1>
+      
+      <p>Have questions about Computer Science 2? Need help with an assignment? Want to discuss career opportunities in computer science? We're here to help!</p>
+      
+      <div class="two-column">
+        <div class="column">
+          <div class="contact-form">
+            <h2>Send a Message</h2>
+            <form action="#" method="post" id="contact-form">
+              <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" class="form-control" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" class="form-control" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <select id="subject" name="subject" class="form-control">
+                  <option value="general">General Inquiry</option>
+                  <option value="assignment">Assignment Help</option>
+                  <option value="advising">Academic Advising</option>
+                  <option value="feedback">Course Feedback</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <label for="message">Your Message</label>
+                <textarea id="message" name="message" class="form-control" required></textarea>
+              </div>
+              
+              <button type="submit" class="button">Send Message</button>
+            </form>
+          </div>
+        </div>
+        
+        <div class="column">
+          <div class="contact-info">
+            <h2>Contact Information</h2>
+            
+            <div class="contact-method">
+              <div class="contact-label">Email</div>
+              <div class="contact-value">cs2@moundsparkacademy.org</div>
+            </div>
+            
+            <div class="contact-method">
+              <div class="contact-label">Phone</div>
+              <div class="contact-value">(651) 748-5577</div>
+            </div>
+            
+            <div class="contact-method">
+              <div class="contact-label">Address</div>
+              <div class="contact-value">
+                Computer Science Department<br>
+                Mounds Park Academy<br>
+                2051 Larpenteur Avenue East<br>
+                Saint Paul, MN 55109
+              </div>
+            </div>
+            
+            <div class="office-hours">
+              <div class="contact-label">Office Hours</div>
+              <div class="office-day">
+                <span>Monday - Thursday</span>
+                <span>3:00 PM - 5:00 PM</span>
+              </div>
+              <div class="office-day">
+                <span>Friday</span>
+                <span>1:00 PM - 3:00 PM</span>
+              </div>
+            </div>
+            
+            <div class="social-links">
+              <div class="contact-label">Follow Us</div>
+              <a href="#" title="GitHub"><span>GH</span></a>
+              <a href="#" title="LinkedIn"><span>LI</span></a>
+              <a href="#" title="Twitter"><span>TW</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        
+        <div class="faq-item">
+          <div class="faq-question">What should I do if I miss a class?</div>
+          <p>If you miss a class, check the course website for lecture notes and any assignments. Contact a classmate for additional information, and then visit during office hours if you have specific questions about the material.</p>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">Is extra help available outside of regular office hours?</div>
+          <p>Yes! While our regular office hours are listed above, we understand that schedules can be tight. Contact Professor Andrews via email to arrange additional help sessions or virtual meetings as needed.</p>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">How can I prepare for the final project?</div>
+          <p>Start thinking about project ideas early in the semester. We recommend reviewing past projects and beginning to form project teams at least a month before the final project period begins. Regular consultations with the teaching staff during the planning phase are strongly encouraged.</p>
+        </div>
+      </div>
+    </div>
+    
+    <script>
+      // Simple form validation
+      document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        // In a real implementation, this would send form data to a server
+        alert('Thank you for your message! We will respond within 48 hours.');
+        this.reset();
+      });
+    </script>
+  </body>
+</html> 
