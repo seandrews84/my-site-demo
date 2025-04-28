@@ -1,7 +1,14 @@
+//“data viz” by Aleksey
+// https://openprocessing.org/sketch/1593469
+// License CreativeCommons 
+// Attribution NonCommercial ShareAlikehttps://creativecommons.org/licenses/by-nc-sa/3.0
+// Remixed by Sean Andrews 4-26-2025
+//purpose: to create a hero banner using particle flow field animation using p5.js
+
 // Original author: Justin Chambers (where i got this code from, i only changed a few numbers :)
 // Date: 03/2018
 // Description: This is a particle flow field animation using p5.js
-
+//
 // Array to hold all particle objects
 var particles = [];
 // Number of particles to create based on screen size and density
@@ -34,14 +41,20 @@ function setup(){
 	nums = windowWidth * windowHeight / particleDensity;
 	// Set initial background color (dark blue-black)
 	backgroundColor = color(0, 0, 10);
-	// Create canvas with full window dimensions
-	createCanvas(windowWidth, windowHeight);
+	// Create canvas with dimensions tailored to hero section
+	const canvas = createCanvas(windowWidth, windowHeight * 0.6);
+	// Attach canvas to hero element
+	canvas.parent('hero');
 	// Set initial background
 	background(backgroundColor);
 	// Initialize all particle objects
 	for(var i = 0; i < nums; i++){
 		particles[i] = new Particle();
 	}
+}
+
+function windowResized(){
+	resizeCanvas(windowWidth, windowHeight * 0.6);
 }
 
 /**
